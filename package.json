@@ -1,0 +1,35 @@
+{
+  "name": "challenge-01",
+  "version": "1.0.0",
+  "description": "A simple server to use for docker challenge.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsup src/index.ts --minify --dts --format cjs --out-dir dist",
+    "start:prod": "node dist/index.cjs",
+    "dev": "tsx watch src/index.ts",
+    "start:migrate:prod": "npx prisma migrate deploy && npm run start:prod"
+  },
+  "keywords": [
+    "devops",
+    "docker",
+    "rocketseat"
+  ],
+  "author": "Bruno Fukumori",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/swagger": "^8.14.0",
+    "@fastify/swagger-ui": "^3.0.0",
+    "@prisma/client": "^5.12.1",
+    "dotenv": "^16.4.5",
+    "fastify": "^4.26.2",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.5",
+    "prisma": "^5.12.1",
+    "tsup": "^8.0.2",
+    "tsx": "^4.7.2",
+    "typescript": "^5.4.4"
+  }
+}
